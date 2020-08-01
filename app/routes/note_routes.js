@@ -20,7 +20,7 @@ module.exports = function(app) {
         console.log(req.body)
 
         admin.auth().updateUser(req.body.uid, {
-            password: '654321',
+            password: req.body.password,
           })
             .then(function(userRecord) {
               // See the UserRecord reference doc for the contents of userRecord.
