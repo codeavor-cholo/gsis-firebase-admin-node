@@ -17,7 +17,8 @@ admin.initializeApp({
 module.exports = function(app) {
     app.post('/changePassword', (req, res) =>{
         // create note here
-        console.log(req.body)
+        console.log('request body', req.body )
+        console.log('request', req)
 
         admin.auth().updateUser(req.body.uid, {
             password: req.body.password,
