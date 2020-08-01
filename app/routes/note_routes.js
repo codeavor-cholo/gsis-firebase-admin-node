@@ -1,6 +1,6 @@
 var admin = require('firebase-admin');
 
-var serviceAccount = require("gsis-coop-firebase-adminsdk-i99bh-fb937c68a7.json");
+var serviceAccount = require("./gsis-coop-firebase-adminsdk-i99bh-fb937c68a7.json");
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
