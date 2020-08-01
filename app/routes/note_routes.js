@@ -1,0 +1,33 @@
+var admin = require('firebase-admin');
+
+admin.initializeApp({
+    credential: admin.credential.applicationDefault(),
+    apiKey: "AIzaSyBi7jIQx3_8dtMPVDorzpas0e_xvq-yJYY",
+    authDomain: "gsis-coop.firebaseapp.com",
+    databaseURL: "https://gsis-coop.firebaseio.com",
+    projectId: "gsis-coop",
+    storageBucket: "gsis-coop.appspot.com",
+    messagingSenderId: "888140950968",
+    appId: "1:888140950968:web:ace39f50b75557ba22f34d",
+    measurementId: "G-RXN150GV38"
+  });
+
+module.exports = function(app) {
+    app.post('/changePassword', (req, res) =>{
+        // create note here
+        console.log(req.body)
+
+        admin.auth().updateUser(req.body.uid, {
+            password: '654321',
+          })
+            .then(function(userRecord) {
+              // See the UserRecord reference doc for the contents of userRecord.
+              console.log('Successfully updated user', userRecord.toJSON());
+              res.send('Successfully updated user')
+            })
+            .catch(function(error) {
+              console.log('Error updating user:', error);
+              res.send('Error updating user')
+            });
+    })
+}
