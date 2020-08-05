@@ -40,10 +40,10 @@ module.exports = function(app) {
       console.log('request', req)
 
       admin.auth().deleteUser(req.body.uid)
-          .then(function(userRecord) {
+          .then(function() {
             // See the UserRecord reference doc for the contents of userRecord.
-            console.log('Successfully updated user', userRecord.toJSON());
-            res.send('Successfully updated user')
+            console.log('Successfully deleted user');
+            res.send('Successfully deleted user')
           })
           .catch(function(error) {
             console.log('Error updating user:', error);
